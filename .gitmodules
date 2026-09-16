@@ -1,0 +1,12 @@
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = https://github.com/H8rsbeware/fw-nvim.lua.git
+[submodule "repos/rofl-projector"]
+	path = repos/rofl-projector
+	url = git@github.com:H8rsbeware/rofl-projector.git
+[submodule "repos/repos/rofl-todo"]
+	path = repos/repos/rofl-todo
+	url = git@github.com:H8rsbeware/rofl-todo.git
+[submodule "repos/rofl-todo"]
+	path = repos/rofl-todo
+	url = git@github.com:H8rsbeware/rofl-todo.git

@@ -1,0 +1,149 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+
+    font: "monospace 12";
+
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+
+    sidebar-mode: false;
+}
+
+* {
+    background:     #111118ee;
+    background-alt: #181825;
+    foreground:     #a6adc8;
+    muted:          #6c7086;
+
+    accent:         #cba6f7;
+    border:         #31313f;
+}
+
+window {
+    width: 34%;
+
+    background-color: @background;
+
+    border: 1px;
+    border-color: @border;
+    border-radius: 8px;
+
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+
+    spacing: 8px;
+    padding: 0px;
+}
+
+inputbar {
+    background-color: @background-alt;
+
+    border-radius: 5px;
+
+    padding: 8px 10px;
+    spacing: 8px;
+}
+
+prompt {
+    background-color: transparent;
+
+    text-color: @accent;
+}
+
+entry {
+    background-color: transparent;
+
+    text-color: @foreground;
+
+    placeholder: "Search...";
+    placeholder-color: @muted;
+}
+
+listview {
+    background-color: transparent;
+
+    columns: 1;
+    lines: 8;
+
+    spacing: 2px;
+    scrollbar: false;
+    fixed-height: false;
+
+    border: 1px 0px 0px 0px;
+    border-color: #cba6f7;
+
+    padding: 5px 0px 0px 0px;
+}
+
+element {
+    background-color: transparent;
+
+    border-radius: 4px;
+
+    padding: 7px 8px;
+    spacing: 10px;
+}
+
+element-icon {
+    background-color: transparent;
+
+    size: 20px;
+}
+
+element-text {
+    background-color: transparent;
+
+    text-color: inherit;
+
+    vertical-align: 0.5;
+}
+
+message {
+    background-color: transparent;
+
+    padding: 5px;
+}
+
+textbox {
+    background-color: transparent;
+
+    text-color: @foreground;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element selected.normal {
+    background-color: @background-alt;
+    text-color: @accent;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: transparent;
+    text-color: @accent;
+}
+
+element selected.active {
+    background-color: @background-alt;
+    text-color: @accent;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color: transparent;
+    text-color: #f38ba8;
+}
+
+element selected.urgent {
+    background-color: @background-alt;
+    text-color: #f38ba8;
+}

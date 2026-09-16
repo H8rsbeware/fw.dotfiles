@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec firefox --name ytm --no-remote -P ytm --new-window "https://music.youtube.com"

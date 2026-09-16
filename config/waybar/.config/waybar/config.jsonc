@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 28,
+
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "padding-top": 8,
+
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "bluetooth",
+        "cpu",
+        "memory",
+        "temperature",
+        "network",
+        "custom/mullvad"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": "  muted",
+        "scroll-step": 5,
+        "on-click": "env GTK_THEME=Adwaita:dark pavucontrol",
+        "on-right-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+	"bluetooth": {
+	    "format": "",
+	    "format-disabled": "",
+	    "format-off": "",
+	    "format-on": "",
+	    "format-no-controller": "",
+
+	    "format-connected": "󰂱",
+	    "format-connected-battery": "󰂱 {device_battery_percentage}%",
+
+	    "tooltip-format-connected": "{device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+	    "tooltip-format-enumerate-connected-battery":
+		"{device_alias}  {device_battery_percentage}%",
+	    "on-click": "blueman-manager"
+	},
+
+    "battery": {
+        "format": "  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-full": "  100%",
+
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "on-click": "kitty --class system-monitor -e btop"
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "on-click": "kitty --class system-monitor -e btop"
+    },
+
+    "temperature": {
+        "format": "{temperatureC}°C",
+        "critical-threshold": 85,
+        "on-click": "kitty --class system-monitor -e btop"
+    },
+    "custom/mullvad": {
+        "exec": "~/.config/waybar/scripts/mullvad-status.sh",
+        "return-type": "json",
+        "interval": 2,
+        
+        "on-click": "mullvad-vpn",
+        "on-click-right": "~/.config/waybar/scripts/mullvad-toggle.sh"
+    },
+    "network": {
+        "format-wifi": "{signalStrength}%",
+        "format-ethernet": "wired",
+        "format-disconnected": "offline",
+
+        "tooltip-format-wifi": "{ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "{ipaddr}\n↓ {bandwidthDownBytes}  ↑ {bandwidthUpBytes}",
+
+        "on-click": "kitty --class network-manager -e nmtui"
+    }
+}
