@@ -31,6 +31,7 @@ intel-ucode
 jq
 keyd
 kitty
+less
 lib32-mesa
 lib32-vulkan-intel
 libpulse
