@@ -314,7 +314,7 @@ configure_firefox_ytm() {
     if [[ -z "$profile" ]]; then
         log "Creating Firefox profile 'ytm'"
 
-        firefox -CreateProfile ytm
+        firefox --headless -CreateProfile ytm
 
         profile="$(find_firefox_ytm_profile || true)"
     fi
