@@ -430,7 +430,7 @@ main() {
     stow_dotfiles
 
     install_python_repo "rofl-projector" "projector"
-    install_python_repo "rofl-todos" "todos" 
+    install_python_repo "rofl-todo" "todos" 
 
     install_system_configs
     configure_snapper
