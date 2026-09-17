@@ -92,6 +92,24 @@ init_submodules() {
     git -C "$ROOT" submodule update --init --recursive
 }
 
+# -----------------------------------------------------------------------------
+# Socket Firewall - MASON
+# -----------------------------------------------------------------------------
+
+install_socket_firewall() {
+    if command -v sfw >/dev/null 2>&1; then
+        return
+    fi
+
+    log "Installing Socket Firewall Free"
+
+    curl -L -o /tmp/sfw \
+        https://github.com/SocketDev/sfw-free/releases/latest/download/sfw-free-linux-x86_64
+
+    chmod +x /tmp/sfw
+    sudo install -m755 /tmp/sfw /usr/local/bin/sfw
+    rm -f /tmp/sfw
+}
 
 # -----------------------------------------------------------------------------
 # GNU Stow
@@ -203,6 +221,8 @@ install_system_configs() {
     sudo install -Dm644 \
         "$ROOT/system/keyd/system/keyd/default.conf" \
         /etc/keyd/default.conf
+
+    sudo systemctl restart keyd.service
 
     log "Installing greetd configuration"
 
@@ -428,6 +448,8 @@ main() {
 
     create_runtime_state
     stow_dotfiles
+
+    install_socket_firewall
 
     install_python_repo "rofl-projector" "projector"
     install_python_repo "rofl-todo" "todos" 
