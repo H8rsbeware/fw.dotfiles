@@ -43,6 +43,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+typeset -gA ZSH_HIGHLIGHT_STYLES
+
 ZSH_HIGHLIGHT_STYLES[command]='fg=#cba6f7,bold'
 ZSH_HIGHLIGHT_STYLES[alias]='fg=#cba6f7,bold'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#cba6f7,bold'
