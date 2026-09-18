@@ -385,6 +385,12 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
+-- INTERNET
+hl.bind(
+    mainMod .. "+ I",
+    hl.dsp.exec_cmd("firefox -p default-release")
+)
+
 -- Lock
 hl.bind(
     mainMod .. "+ ALT + L",
