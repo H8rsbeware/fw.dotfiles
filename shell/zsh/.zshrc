@@ -23,6 +23,8 @@ source <(fzf --zsh)
 
 # Navigation
 eval "$(zoxide init zsh)"
+alias ':q'='exit'
+alias 'cd'='z'
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

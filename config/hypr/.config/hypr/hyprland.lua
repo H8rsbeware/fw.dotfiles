@@ -385,6 +385,7 @@ hl.gesture({
 
 local mainMod = "SUPER"
 
+
 -- INTERNET
 hl.bind(
     mainMod .. "+ I",
@@ -410,7 +411,12 @@ hl.bind(
 
 hl.bind(
     mainMod .. " + SHIFT + Space",
-    hl.dsp.exec_cmd("rofi -show projects -modes \"projects:~/.local/bin/projector\" -kb-custom-1 \"Alt+Return\"")
+    hl.dsp.exec_cmd("rofi -show projects -modes \"projects:$HOME/.local/bin/projector\" -kb-custom-1 \"Alt+Return\"")
+)
+
+hl.bind(
+    mainMod .. " + SHIFT + T",
+    hl.dsp.exec_cmd("rofi -show todos -modes \"todos:$HOME/.local/bin/todos\"")
 )
 
 hl.bind(
