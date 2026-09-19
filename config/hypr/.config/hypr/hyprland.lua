@@ -753,6 +753,9 @@ hl.window_rule({
     no_focus = true,
 })
 
+-- ~/scratch.md
+
+require("scratch-pad")
 
 
 ---------------
