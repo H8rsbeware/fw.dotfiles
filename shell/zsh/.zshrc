@@ -27,11 +27,13 @@ eval "$(zoxide init zsh)"
 ## sanitiy
 alias ':q'='exit'
 ## cd is more explicit z and ls made more clear
-alias 'cd'='cdls'
+cd() {
+    builtin cd -- "$@" && ls -a
+}
 alias 'ld'='ls'
 alias 'ls'='ls -a'
 ## quick go back
-alias 'cx'='cd ..'
+alias 'cx'='z ..'
 ## lazy 
 # alias 'pvim'='~/.local/bin/pvim'
 
