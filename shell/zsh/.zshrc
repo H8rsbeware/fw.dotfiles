@@ -21,10 +21,20 @@ bindkey -v
 # FZF
 source <(fzf --zsh)
 
+
 # Navigation
 eval "$(zoxide init zsh)"
+## sanitiy
 alias ':q'='exit'
-alias 'cd'='z'
+## cd is more explicit z and ls made more clear
+alias 'cd'='cdls'
+alias 'ld'='ls'
+alias 'ls'='ls -a'
+## quick go back
+alias 'cx'='cd ..'
+## lazy 
+# alias 'pvim'='~/.local/bin/pvim'
+
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
