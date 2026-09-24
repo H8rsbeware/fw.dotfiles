@@ -30,5 +30,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 bufnr = event.buf,
             })
         end
+
+        local opts = {
+            buffer = event.buf,
+            silent = true,
+        }
+
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+
+        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>ds", vim.diagnostic.open_float)
+        vim.keymap.set("n", "<leader>dsa", function()
+            vim.diagnostic.setloclist()
+            vim.cmd.lopen()
+        end, { silent  = false })
     end,
 })
