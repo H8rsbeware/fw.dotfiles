@@ -71,3 +71,7 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#f38ba8'
 
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# >>> Codex installer >>>
+export PATH="/home/h8/.local/bin:$PATH"
+# <<< Codex installer <<<

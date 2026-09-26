@@ -31,21 +31,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
             })
         end
 
-        local opts = {
-            buffer = event.buf,
-            silent = true,
-        }
+        if client and client:supports_method("textDocument/documentHighlight") then
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                buffer = event.buf,
+                callback = vim.lsp.buf.document_highlight,
+            })
 
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                buffer = event.buf,
+                callback = vim.lsp.buf.clear_references,
+            })
+        end
 
-        vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
-
-        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>ds", vim.diagnostic.open_float)
-        vim.keymap.set("n", "<leader>dsa", function()
-            vim.diagnostic.setloclist()
-            vim.cmd.lopen()
-        end, { silent  = false })
     end,
 })
+

@@ -3,12 +3,26 @@
 ------------------
 
 hl.monitor({
+    output   = "HDMI-A-1",
+    mode     = "preferred",
+    position = "0x0",
+    scale    = "auto",
+})
+
+hl.monitor({
+    output   = "DP-1",
+    mode     = "preferred",
+    position = "auto-right",
+    scale    = "auto",
+})
+
+-- Fallback Framework internal display
+hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
     scale    = "auto",
 })
-
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -27,7 +41,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("mako")
     hl.exec_cmd("hyprpaper")
-    h1.exec_cmd("hypridle")
+    hl.exec_cmd("hypridle")
 end)
 
 
@@ -457,7 +471,7 @@ hl.bind(
 
 -- Hyprland shutdown / exit
 hl.bind(
-    mainMod .. " + M",
+    mainMod .. "+ ALT + grave", 
     hl.dsp.exec_cmd(
         "command -v hyprshutdown >/dev/null 2>&1 " ..
         "&& hyprshutdown " ..
