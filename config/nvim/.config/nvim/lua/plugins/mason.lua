@@ -17,6 +17,25 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+        opts = {
+            servers = {
+                basedpyright = {
+                    settings = {
+                        basedpyright = {
+                            analysis = {
+                                -- Prevent basedpyright from offering organize-imports actions
+                                disableOrganizeImports = true,
+                            },
+                        },
+                    },
+                    -- Disable all formatting from this LSP client
+                    on_attach = function(client, bufnr)
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                    end,
+                },
+            },
+        },
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
