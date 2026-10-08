@@ -30,13 +30,13 @@ alias ':q'='exit'
 cd() {
     builtin cd -- "$@" && ls -a
 }
-alias 'ld'='ls'
-alias 'ls'='ls -a'
+ld() {
+    builtin ls -a -- "$@"
+}
 ## quick go back
 alias 'cx'='z ..'
 ## lazy 
-# alias 'pvim'='~/.local/bin/pvim'
-
+alias 'cura'='~/Downloads/cura-5.13.AppImage &|'
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
