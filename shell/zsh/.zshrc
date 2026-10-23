@@ -31,12 +31,14 @@ cd() {
     builtin cd -- "$@" && ls -a
 }
 ld() {
-    builtin ls -a -- "$@"
+    ls -a -- "$@"
 }
 ## quick go back
 alias 'cx'='z ..'
 ## lazy 
-alias 'cura'='~/Downloads/cura-5.13.AppImage &|'
+alias 'cura'='systemd-inhibit --what=sleep --who="Cura USB Printing" --why="Preventing suspend while printing" ~/Downloads/cura-5.13.AppImage &|'
+alias 'ondsel'='~/Downloads/ondsel-es.AppImage &|'
+alias 'cqed'='~/cq-editor/run.sh --platform xcb'
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

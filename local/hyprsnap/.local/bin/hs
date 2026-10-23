@@ -1,0 +1,3 @@
+  #!/usr/bin/env bash
+  exec /home/h8/Documents/Code/SystemImprovements/
+  sessioniser/.venv/bin/hyprsnap "$@"
